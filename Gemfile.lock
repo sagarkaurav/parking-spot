@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    AlphaNumericToken (0.0.1)
     actioncable (5.0.1)
       actionpack (= 5.0.1)
       nio4r (~> 1.2)
@@ -200,6 +201,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  AlphaNumericToken (~> 0.0.1)
   byebug
   capybara (~> 2.12)
   coffee-rails (~> 4.2)
