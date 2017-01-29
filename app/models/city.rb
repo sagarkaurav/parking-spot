@@ -1,4 +1,5 @@
 class City < ApplicationRecord
+  has_many :parkings
   validates :name, presence: true
   validates :code, presence: true, uniqueness: true
 
