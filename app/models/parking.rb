@@ -2,6 +2,7 @@ class Parking < ApplicationRecord
 
   attr_accessor :distance_from_user
   belongs_to :city
+  has_many :tickets
   monetize :car_price_paisas
   monetize :bike_price_paisas
 
@@ -13,7 +14,6 @@ class Parking < ApplicationRecord
   validates :latitude, presence: true
 
   before_create :auto_generate_aval_car_bike_spots
-
 
   private
   def auto_generate_aval_car_bike_spots
