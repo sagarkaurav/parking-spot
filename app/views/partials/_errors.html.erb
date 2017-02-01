@@ -1,0 +1,35 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <% if !flash[:error].nil? %>
+        <div class="alert alert-danger alert-dismissable">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <%= flash[:error] %>
+        </div>
+      <% end %>
+
+      <% if !flash[:notice].nil? %>
+      <div class="alert alert-info alert-dismissable">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <%= flash[:notice] %>
+      </div>
+      <% end %>
+
+      <% if !flash[:alert].nil? %>
+      <div class="alert alert-success alert-dismissable">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <%= flash[:alert] %>
+      </div>
+      <% end %>
+
+      <% if !flash[:m_errors].nil? %>
+      <% flash[:m_errors].each do |error|  %>
+      <div class="alert alert-danger alert-dismissable">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <%= error %>
+      </div>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
