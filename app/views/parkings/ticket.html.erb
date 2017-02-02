@@ -14,7 +14,7 @@
         </div>
         <div class="panel-footer">
           <%= link_to "PAY #{humanized_money_with_symbol(@ticket.total_amount)}",
-              "#",
+              tickets_payment_path,
               class: "btn btn-primary btn-block" %>
         </div>
       </div>
