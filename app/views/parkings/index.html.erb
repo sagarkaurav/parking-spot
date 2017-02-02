@@ -1,0 +1,68 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <% @parkings.each do |parking| %>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= parking.name %>
+            <span class="label label-primary pull-right"><%= parking.distance_from_user %></span>
+          </h3>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Address</h3>
+                </div>
+                <div class="panel-body">
+                  <%= parking.address %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">
+                    Car
+                    <span class="pull-right">
+                      <%= parking.car_price%>/hour
+                    </span>
+                  </h3>
+                </div>
+                <div class="panel-body">
+                  Available
+                  <%= parking.aval_car_spots %>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">
+                    Bike
+                    <span class="pull-right">
+                      <%= parking.bike_price%>/hour
+                    </span>
+                  </h3>
+                </div>
+                <div class="panel-body">
+                  Available
+                  <%= parking.aval_bike_spots %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel-footer">
+          <%= link_to "BOOK NOW",parkings_book_path(parking), class: "btn btn-primary btn-block" %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-md-offset-5 col-md-4 col-sm-6 col-sm-offset-3">
+    <%= will_paginate @parkings, renderer: BootstrapPagination::Rails %>
+  </div>

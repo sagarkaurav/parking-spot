@@ -17,9 +17,9 @@ class CitiesController < ApplicationController
       session[:latitude] = params[:latitude].to_f
     end
     if city
-      @city
+      redirect_to parkings_path(city.name)
     else
-      flash[:m_errors] = "Sorry city is not available"
+      flash[:error] = "Sorry city is not available"
       redirect_to root_path
     end
   end
