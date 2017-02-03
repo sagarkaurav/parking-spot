@@ -3,6 +3,7 @@ class Parking < ApplicationRecord
   attr_accessor :distance_from_user
   belongs_to :city
   has_many :tickets
+  has_one :parking_admin
   monetize :car_price_paisas
   monetize :bike_price_paisas
 
