@@ -223,6 +223,7 @@ PLATFORMS
 
 DEPENDENCIES
   AlphaNumericToken (~> 0.0.1)
+  bcrypt (~> 3.1.7)
   bootstrap-sass (~> 3.3, >= 3.3.7)
   byebug
   capybara (~> 2.12)
