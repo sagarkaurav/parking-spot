@@ -1,4 +1,5 @@
 class TicketsController < ApplicationController
+  before_action :authenticate_user!
   def payment
     if session[:ticket_id]
       @ticket = Ticket.find(session[:ticket_id])
@@ -19,6 +20,7 @@ class TicketsController < ApplicationController
       @ticket = Ticket.find(session[:ticket_id])
       @ticket.status = 1
       @ticket.save
+      session[:ticket_id] = nil
       flash[:alert] = "Ticket is Successfully booked"
       redirect_to parkings_path(@ticket.parking.city.name)
     else

@@ -15,6 +15,14 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href=<%= root_path %>>Home</a></li>
       </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+        <%= link_to "sign out",destroy_user_session_path,method: :delete ,class: "btn btn-primary navbar-btn" %>
+        <% else %>
+        <%= link_to "sign in",new_user_session_path,class: "btn btn-primary navbar-btn" %>
+        <%= link_to "sign up",new_user_registration_path,class: "btn btn-primary navbar-btn" %>
+        <% end %>
+      </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>

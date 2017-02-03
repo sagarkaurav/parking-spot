@@ -1,4 +1,5 @@
 class ParkingsController < ApplicationController
+  before_action :authenticate_user!,only:[:book,:ticket]
   def index
     if(City.find_by_name(params[:city_name].downcase))
       @parkings = City.find_by_name(params[:city_name]).parkings.paginate(:page=>params[:page],:per_page=>3)
@@ -50,7 +51,8 @@ class ParkingsController < ApplicationController
       checkin_time: Time.current.change({hour:params[:checkin_time].to_i}),
       parking_id: session[:parking_id],
       offline_amount: 0,
-      online_amount: amount*params[:booked_hours].to_i
+      online_amount: amount*params[:booked_hours].to_i,
+      user_id: current_user.id
     }
     book_ticket_params[:total_amount] = book_ticket_params[:offline_amount] + book_ticket_params[:online_amount]
     @ticket = Ticket.new(book_ticket_params)
