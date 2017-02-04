@@ -1,0 +1,31 @@
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="<%= admin_panel_index_path %>">PARKING SPOT</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbar">
+      <ul class="nav navbar-nav">
+        <% if !session[:admin_id].nil? %>
+          <li class="active"><a href="<%= admin_panel_index_path %>">Home</a></li>
+          <li><a href="<%= admin_panel_checkin_path %>" >Check-in</a></li>
+          <li><a href="<%= admin_panel_checkout_path %>">Check-out</a></li>
+          <li><a href="<%= admin_panel_ticket_path %>">Offline ticket</a></li>
+        <% end %>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if session[:admin_id].nil? %>
+          <a href="<%= admin_panel_login_path %>" class="btn btn-primary navbar-btn">Login</a>
+        <% else %>
+          <%= link_to "Log out",admin_panel_logout_path,method: :delete,class: "btn btn-primary navbar-btn" %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,57 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <%= form_tag admin_panel_book_ticket_path, method: :post do %>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="first_name">First name</label>
+            <input type="text" class="form-control" name="first_name" value="" >
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="last_name">Last name</label>
+            <input type="text" class="form-control" name="last_name" value="" >
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="phone_number">Phone Number</label>
+        <input type="text" class="form-control" name="phone_number" value="" >
+      </div>
+      <div class="form-group">
+        <label for="license">License</label>
+        <input type="text" name="license" placeholder="License plate number" class="form-control"/>
+      </div>
+      <div class="form-group">
+        <label for="vehicle_type">Vehicle Type</label>
+        <select name="vehicle_type" class="form-control">
+          <% if @parking.aval_car_spots > 0 %>
+          <option value="car">Car</option>
+          <% else %>
+          <option value="car" disabled>Car</option>
+          <% end %>
+          <% if @parking.aval_bike_spots > 0 %>
+          <option value="bike">Bike</option>
+          <% else %>
+          <option value="bike" disabled>Bike</option>
+          <% end %>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="booked_hours">Booked Hours</label>
+        <select name="booked_hours" class="form-control">
+          <option disabled selected>Select stay hours</option>
+          <% (4..24).each do |i| %>
+          <option value=<%= i%> ><%= i %></option>
+          <% end %>
+        </select>
+      </div>
+      <div class="form-group">
+        <input type="submit" value="Processed" class="btn btn-primary btn-block"/>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

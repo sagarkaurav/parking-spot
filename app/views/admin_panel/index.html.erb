@@ -1,0 +1,62 @@
+<input type="hidden" id="pid" value"<%= @parking.id %>">
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h6 class="panel-title">Available car spots</h6>
+          </div>
+          <div class="panel-body text-center">
+            <%= @parking.aval_car_spots %>
+          </div>
+        </div>
+      </div>
+        <div class="col-md-8">
+          <% if !(@tickets.count == 0) %>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>License</th>
+                            <th>Vehicle Type</th>
+                            <th>Booked Hours</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @tickets.each do |ticket| %>
+                        <tr>
+                            <td><%= ticket.license%></td>
+                            <td><%=ticket.vehicle_type%></td>
+                            <td><%=ticket.booked_hours%></td>
+                            <% if ticket.status == 1 %>
+                            <td><%= link_to 'Check in',{controller: :admin_panel, action: :checkin,token: ticket.token}, class: "btn btn-primary" %></td>
+                        <% else %>
+                            <td><%= link_to 'Check out',{controller: :admin_panel, action: :checkout,token: ticket.token}, class: "btn btn-primary" %></td>
+                            <% end %>
+                        </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            </div>
+            <% else %>
+            <h1 class="text-center">No bookings yet.</h1>
+            <% end %>
+        </div>
+        <div class="col-md-2">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h6 class="panel-title">Available bike spots</h6>
+            </div>
+            <div class="panel-body text-center">
+              <%= @parking.aval_bike_spots %>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-md-6 col-md-offset-4">
+        <%= will_paginate @tickets, renderer: BootstrapPagination::Rails %>
+      </div>
+    </div>
+</div>

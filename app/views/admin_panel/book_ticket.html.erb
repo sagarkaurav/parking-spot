@@ -1,0 +1,28 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title text-center">Ticket summary</h3>
+        </div>
+        <div class="panel-body text-center">
+          <p>Ticket <%= @ticket.token %></p>
+          <p>Ceckin time <%= @ticket.checkin_time.strftime('%Y/%m/%d %I:%M%p') %></p>
+          <p>Expected Checkout time <%= (@ticket.checkin_time +
+                                    @ticket.booked_hours.hours).strftime('%Y/%m/%d %I:%M%p')
+                                     %></p>
+          <p>License <%= @ticket.license %></p>
+          <p>Vehicle Type <%= @ticket.vehicle_type %></p>
+        </div>
+        <div class="panel-footer">
+          <%= form_tag admin_panel_complete_ticket_payment_path, method: :post do %>
+          <input type="hidden" name="token" value= <%= @ticket.token %> >
+          <input type="hidden" name="license" value= <%= @ticket.license %> >
+          <input type="submit" class="btn btn-primary btn-block" value="<%= humanized_money_with_symbol(@ticket.total_amount) %>">
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
