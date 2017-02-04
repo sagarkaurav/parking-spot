@@ -75,7 +75,7 @@ class Ticket < ApplicationRecord
     booked_time = (self.checkin_time + self.booked_hours.hours)
     time_now  = Time.now.change(min:0,sec:0)
 
-    if time_now.between?(self.checkin_time,booked_time)
+    if (time_now.between?(self.checkin_time,booked_time) or(time_now == booked_time))
       return false
     else
       (((time_now-booked_time)/60)/60).to_i
