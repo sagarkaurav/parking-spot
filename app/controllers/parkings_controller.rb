@@ -57,6 +57,7 @@ class ParkingsController < ApplicationController
     book_ticket_params[:total_amount] = book_ticket_params[:offline_amount] + book_ticket_params[:online_amount]
     @ticket = Ticket.new(book_ticket_params)
     if @ticket.save
+      ActionCable.server.broadcast 'notify_booking',@ticket
       session[:ticket_id] = @ticket.id
       session[:checkout_time] = @ticket.checkin_time + @ticket.booked_hours.hours
     else

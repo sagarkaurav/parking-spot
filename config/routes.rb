@@ -24,4 +24,5 @@ Rails.application.routes.draw do
   post 'admin_panel/book_ticket'
   post 'admin_panel/complete_ticket_payment'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  mount ActionCable.server => '/cable'
 end

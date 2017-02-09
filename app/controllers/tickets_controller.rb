@@ -20,6 +20,7 @@ class TicketsController < ApplicationController
       @ticket = Ticket.find(session[:ticket_id])
       @ticket.status = 1
       @ticket.save
+      ActionCable.server.broadcast 'notify_booking',@ticket
       session[:ticket_id] = nil
       flash[:alert] = "Ticket is Successfully booked"
       redirect_to parkings_path(@ticket.parking.city.name)

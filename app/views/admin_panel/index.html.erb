@@ -1,4 +1,4 @@
-<input type="hidden" id="pid" value"<%= @parking.id %>">
+<input type="hidden" id="pid" value="<%= @parking.id %>">
 <div class="container-fluid">
     <div class="row">
       <div class="col-md-2">
@@ -6,13 +6,12 @@
           <div class="panel-heading">
             <h6 class="panel-title">Available car spots</h6>
           </div>
-          <div class="panel-body text-center">
+          <div class="panel-body text-center" id="car-spots">
             <%= @parking.aval_car_spots %>
           </div>
         </div>
       </div>
-        <div class="col-md-8">
-          <% if !(@tickets.count == 0) %>
+        <div class="col-md-8" id="ticket-table">
             <div class="table-responsive">
                 <table class="table table-hover">
                     <thead>
@@ -23,7 +22,7 @@
                             <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="ticket-table-rows">
                         <% @tickets.each do |ticket| %>
                         <tr>
                             <td><%= ticket.license%></td>
@@ -39,16 +38,13 @@
                     </tbody>
                 </table>
             </div>
-            <% else %>
-            <h1 class="text-center">No bookings yet.</h1>
-            <% end %>
         </div>
         <div class="col-md-2">
           <div class="panel panel-primary">
             <div class="panel-heading">
               <h6 class="panel-title">Available bike spots</h6>
             </div>
-            <div class="panel-body text-center">
+            <div class="panel-body text-center" id="bike-spots">
               <%= @parking.aval_bike_spots %>
             </div>
           </div>
