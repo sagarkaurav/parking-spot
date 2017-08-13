@@ -1,0 +1,42 @@
+//global settings
+$text-color:     black !default;
+
+//changing navbar styling
+$navbar-border-radius: 0 !default;
+$navbar-default-bg:    #34495e !default;
+$navbar-default-color: white !default;
+$navbar-default-link-color: white  !default;
+$navbar-default-link-active-color: #1abc9c !default;
+$navbar-default-link-hover-color: #1abc9c !default;
+$navbar-default-border: 0px !default;
+$navbar-default-link-active-bg: $navbar-default-bg;
+// navbar toggle button
+$navbar-default-toggle-hover-bg:    $navbar-default-bg !default;
+$navbar-default-toggle-icon-bar-bg: white !default;
+$navbar-default-toggle-border-color: $navbar-default-bg;
+
+//button styling
+
+$btn-font-weight: bold !default;
+$btn-primary-color: white !default;
+$btn-primary-border: #16a085 !default;
+$btn-primary-bg: #16a085 !default;
+$btn-border-radius-base: 0px !default;
+//input styling
+$input-border: #2ecc71 !default;
+$input-color:  black !default;
+$input-bg:     transparent !default;
+$input-border-radius:            0px !default;
+$input-border-radius-large:      0px !default;
+$input-border-radius-small:      0px !default;
+$input-border-focus:             #2ecc71 !default;
+
+//panel styling
+$panel-default-heading-bg: #2980b9 !default;
+$panel-default-text:       white !default;
+$panel-bg:                 #fff !default;
+$panel-footer-padding:     0px !default;
+
+//label styling
+
+$label-primary-bg: #e67e22 !default;

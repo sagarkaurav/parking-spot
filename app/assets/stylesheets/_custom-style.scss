@@ -1,0 +1,56 @@
+body
+{
+  background-color: #ecf0f1;
+}
+.navbar-brand
+{
+  font-weight: bold;
+}
+.active
+{
+  font-weight: bold;
+}
+.navbar-nav > li > a{
+  font-weight: bold;
+  text-align: center;
+}
+.navbar-default
+{
+  border-bottom: 6px #16A085 solid;
+}
+input:focus
+{
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+.input-group-addon
+{
+  //padding: 0 5px;
+  background-color: #8BC34A;
+}
+.parking-header
+{
+  background-color: #16A085 !important;
+}
+#home-text
+{
+  letter-spacing: 4px;
+  font-weight: bolder;
+}
+.available-spots
+{
+  background-color: #e74c3c;
+  font-weight: bolder;
+  font-size: 40px;
+  color: white;
+  letter-spacing: 3px;
+}
+.panel-heading
+{
+  border: transparent;
+}
+.ui-widget
+{
+  border: 2px #16A085 solid !important;
+  font-size: 1.5em;
+}
